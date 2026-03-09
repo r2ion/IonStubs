@@ -38,7 +38,7 @@ if cpp.get_id() != 'msvc'
   add_global_link_arguments('-static', '-static-libgcc', language: 'c')
   add_global_link_arguments('-static', '-static-libgcc', '-static-libstdc++', language: 'cpp')
 endif
-
+ 
 subdir('src/d3d11')
 subdir('src/gfsdk')
 subdir('src/dxgi')

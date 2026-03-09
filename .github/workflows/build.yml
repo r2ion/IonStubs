@@ -21,7 +21,7 @@ jobs:
           meson install -C build --destdir destdir
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: NorthstarStubs
           path: build/destdir/bin/*.dll

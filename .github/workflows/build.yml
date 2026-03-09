@@ -2,7 +2,7 @@ name: Build
 on:
   push:
     branches:
-      - '**'
+      - "**"
   pull_request:
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
           meson install -C build --destdir destdir
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: NorthstarStubs
           path: build/destdir/bin/*.dll

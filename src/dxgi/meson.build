@@ -1,6 +1,8 @@
 # forked from dxvk @ ecd7b67069a6e2a4b78a8a929fd287030d283ccb (2021-12-17)
 
-dxgi_res = wrc_generator.process('version.rc')
+dxgi_res = [
+  windows.compile_resources('version.rc'),
+]
 
 dxgi_src = [
   'dxgi_adapter.cpp',
@@ -14,14 +16,10 @@ dxgi_src = [
   'dxgi_swapchain.cpp',
 ]
 
-dxgi_dll = shared_library('dxgi'+dll_ext, dxgi_src, dxgi_res,
-  name_prefix         : '',
-  dependencies        : [ dxvk_dep ],
-  include_directories : dxvk_include_path,
-  install             : true,
-  vs_module_defs      : 'dxgi'+def_spec_ext,
-  override_options    : ['cpp_std='+dxvk_cpp_std])
 
-dxgi_dep = declare_dependency(
-  link_with           : [ dxgi_dll ],
-  include_directories : [ dxvk_include_path ])
+shared_library('dxgi', dxgi_src+ dxgi_res,
+  name_prefix    : '',
+  install        : true,
+  vs_module_defs : 'dxgi.def',
+)
+

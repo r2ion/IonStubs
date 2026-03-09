@@ -4,6 +4,10 @@ dxgi_res = [
   windows.compile_resources('version.rc'),
 ]
 
+util_src = [
+  'com_guid.cpp',
+]
+
 dxgi_src = [
   'dxgi_adapter.cpp',
   'dxgi_enums.cpp',
@@ -17,7 +21,7 @@ dxgi_src = [
 ]
 
 
-shared_library('dxgi', dxgi_src+ dxgi_res,
+shared_library('dxgi',util_src + dxgi_src+ dxgi_res ,
   name_prefix    : '',
   install        : true,
   vs_module_defs : 'dxgi.def',

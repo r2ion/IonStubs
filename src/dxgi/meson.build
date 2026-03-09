@@ -4,24 +4,12 @@ dxgi_res = [
   windows.compile_resources('version.rc'),
 ]
 
-util_src = [
-  'com_guid.cpp',
-]
-
 dxgi_src = [
-  'dxgi_adapter.cpp',
-  'dxgi_enums.cpp',
-  'dxgi_factory.cpp',
-  'dxgi_format.cpp',
-  'dxgi_main.cpp',
-  'dxgi_monitor.cpp',
-  'dxgi_options.cpp',
-  'dxgi_output.cpp',
-  'dxgi_swapchain.cpp',
+  'dxgi.cc',
 ]
 
 
-shared_library('dxgi',util_src + dxgi_src+ dxgi_res ,
+shared_library('dxgi', dxgi_src+ dxgi_res ,
   name_prefix    : '',
   install        : true,
   vs_module_defs : 'dxgi.def',

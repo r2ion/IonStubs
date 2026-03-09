@@ -41,3 +41,4 @@ endif
 
 subdir('src/d3d11')
 subdir('src/gfsdk')
+subdir('src/dxgi')
